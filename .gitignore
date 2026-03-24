@@ -1,0 +1,28 @@
+.opencode/history/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+dist/
+*.egg-info/
+.uv/
+
+# Django
+*.log
+media/
+staticfiles/
+
+# Node
+node_modules/
+.next/
+out/
+
+# Environment
+.env
+
+# Editor
+.DS_Store
+.idea/
+.vscode/

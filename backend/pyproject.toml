@@ -1,0 +1,23 @@
+[project]
+name = "my-teacher-backend"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+dependencies = [
+    "django>=5.0",
+    "djangorestframework>=3.15",
+    "psycopg2-binary>=2.9",
+    "python-decouple>=3.8",
+    "gunicorn>=22.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "pytest-django>=4.8",
+    "ruff>=0.4",
+]
