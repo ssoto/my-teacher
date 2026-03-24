@@ -1,22 +1,25 @@
-.PHONY: up down build migrate makemigrations logs shell
+.PHONY: help up down build migrate makemigrations logs shell
 
-up:
+help: ## Show this help message
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+up: ## Start all services
 	docker compose up
 
-down:
+down: ## Stop all services
 	docker compose down
 
-build:
+build: ## Build all Docker images
 	docker compose build
 
-migrate:
+migrate: ## Run database migrations
 	docker compose run --rm backend python manage.py migrate
 
-makemigrations:
+makemigrations: ## Create new migration files
 	docker compose run --rm backend python manage.py makemigrations
 
-logs:
+logs: ## Follow service logs
 	docker compose logs -f
 
-shell:
+shell: ## Open Django shell
 	docker compose run --rm backend python manage.py shell
